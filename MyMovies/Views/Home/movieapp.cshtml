@@ -1,5 +1,49 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Movie Application";
 }
 
+@model MyMovies.Models.ApplicationResponse
+
 <h1>Movie Form</h1>
+
+<div>
+    <form method="post">
+        <label asp-for="category">Category:</label>
+        <input asp-for="category" /><br />
+
+        <label asp-for="title">Title:</label>
+        <input asp-for="title" /><br />
+
+        <label asp-for="year">Year:</label>
+        <input asp-for="year" /><br />
+
+        <label asp-for="director">Director:</label>
+        <input asp-for="director" /><br />
+
+        <label asp-for="rating">Rating:</label>
+        <select asp-for="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br />
+
+        <label asp-for="edited">Is the movie edited? </label>
+        <select asp-for="edited">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
+
+        <label asp-for="lent">Who was this lent to?</label>
+        <input asp-for="lent" /><br />
+
+        <label asp-for="notes">Additional notes: </label>
+        <input asp-for="notes" /><br />
+
+        <button type="submit">Submit Form</button>
+
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
+
