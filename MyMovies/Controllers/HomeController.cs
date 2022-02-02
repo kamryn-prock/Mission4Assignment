@@ -12,10 +12,13 @@ namespace MyMovies.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MovieFormContext blahContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        //Constructor
+        public HomeController(ILogger<HomeController> logger, MovieFormContext someName)
         {
             _logger = logger;
+            blahContext = someName;
         }
 
         public IActionResult Index()
@@ -23,11 +26,34 @@ namespace MyMovies.Controllers
             return View();
         }
 
+        [HttpGet]
+        //get data
         public IActionResult FillOutForm()
         {
             return View("movieapp");
         }
 
+        [HttpPost]
+        //post data when valid
+        public IActionResult FillOutForm(ApplicationResponse ar)
+        {
+            if (ModelState.IsValid)
+            {
+                blahContext.Add(ar);
+                blahContext.SaveChanges();
+
+                return View("confirmation", ar);
+            }
+            else { 
+                return View("movieapp",ar);
+            }
+        }
+
+        //podcast view
+        public IActionResult Podcasts()
+        {
+            return View("Podcasts");
+        }
         public IActionResult Privacy()
         {
             return View();

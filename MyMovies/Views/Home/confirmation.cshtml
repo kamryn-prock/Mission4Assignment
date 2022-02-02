@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Form Submitted";
+}
+
+@model MyMovies.Models.ApplicationResponse
+
+@if (Model.edited == true)
+{
+    <h2>Thanks for choosing an edited movie. You will be blessed for this.</h2>
+}
+else
+{
+    <h2>Form Received. Thank you, your movie,"@Model.title ",has been recorded. </h2>
+}
