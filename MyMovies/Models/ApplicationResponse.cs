@@ -17,8 +17,6 @@ namespace MyMovies.Models
         [Required]
         public int ApplicationId { get; set; }
         [Required]
-        public string category { get; set; }
-        [Required]
         public string title { get; set; }
         [Required]
         public short year { get; set; }
@@ -28,9 +26,14 @@ namespace MyMovies.Models
         public string rating { get; set; } // make a drop down
         public bool edited { get; set; }
         public string lent { get; set; }
-        
         //[Range(0, 25)]
         public string notes { get; set; }// 25 characters
-        
+
+        // Build the Foreign Key relationship
+        [Required]
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
+       
+
     }
 }

@@ -23,7 +23,7 @@ namespace MyMovies.Models
                 new ApplicationResponse
                 {
                     ApplicationId = 1,
-                    category = "Action/Adventure",
+                    CategoryID = 1,
                     title = "Avengers, The",
                     year = 2012,
                     director = "Tom",
@@ -32,7 +32,7 @@ namespace MyMovies.Models
                 new ApplicationResponse
                 {
                     ApplicationId = 2,
-                    category = "Action/Adventure",
+                    CategoryID = 1,
                     title = "Batman",
                     year = 1989,
                     director = "Zach",
@@ -41,7 +41,7 @@ namespace MyMovies.Models
                 new ApplicationResponse
                 {
                     ApplicationId = 3,
-                    category = "Action/Adventure",
+                    CategoryID = 1,
                     title = "Batman & Robin",
                     year = 1989,
                     director = "Jake",

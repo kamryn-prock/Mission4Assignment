@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+}
+
+@model List<ApplicationResponse>
+
+<table class="table table-bordered table-dark table-striped">
+
+    <thead>
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+            {
+        <tr>
+            <td>@x.category</td>
+            @*<td>@x.CategoryID</td>*@
+            <td>@x.title</td>
+            <td>@x.year</td>
+            <td>@x.director</td>
+            <td>@x.rating</td>
+            <td>@x.edited</td>
+            <td>@x.lent</td>
+            <td>@x.notes</td>
+        </tr>
+
+            }
+    </tbody>
+
+</table>

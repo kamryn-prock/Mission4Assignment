@@ -11,14 +11,13 @@ namespace MyMovies.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private MovieFormContext blahContext { get; set; }
+   
+        private MovieFormContext myContext { get; set; }
 
         //Constructor
-        public HomeController(ILogger<HomeController> logger, MovieFormContext someName)
+        public HomeController(MovieFormContext someName)
         {
-            _logger = logger;
-            blahContext = someName;
+            myContext = someName;
         }
 
         public IActionResult Index()
@@ -39,8 +38,8 @@ namespace MyMovies.Controllers
         {
             if (ModelState.IsValid)
             {
-                blahContext.Add(ar);
-                blahContext.SaveChanges();
+                myContext.Add(ar);
+                myContext.SaveChanges();
 
                 return View("confirmation", ar);
             }
@@ -49,20 +48,24 @@ namespace MyMovies.Controllers
             }
         }
 
+        //List View
+        public IActionResult List()
+        {
+            var applications = myContext.Responses
+                // .Where(x => x.edited == false)
+                //.OrderBy(x => x.category)
+                .ToList()
+                
+                .ToList();
+            
+            return View(applications); // return list of applications
+        }
+
         //podcast view
         public IActionResult Podcasts()
         {
             return View("Podcasts");
         }
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+       
     }
 }
