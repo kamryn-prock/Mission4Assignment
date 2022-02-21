@@ -22,20 +22,23 @@
 
     <tbody>
         @foreach (var x in Model)
-            {
-        <tr>
-            <td>@x.category</td>
-            @*<td>@x.CategoryID</td>*@
-            <td>@x.title</td>
-            <td>@x.year</td>
-            <td>@x.director</td>
-            <td>@x.rating</td>
-            <td>@x.edited</td>
-            <td>@x.lent</td>
-            <td>@x.notes</td>
-        </tr>
+           {
+             <tr>
+                <td>@x.Category.CategoryName</td>
+                @*<td>@x.CategoryID</td>*@
+                <td>@x.title</td>
+                <td>@x.year</td>
+                <td>@x.director</td>
+                <td>@x.rating</td>
+                <td>@x.edited</td>
+                <td>@x.lent</td>
+                <td>@x.notes</td>
 
-            }
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.ApplicationId">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete"asp-route-applicationid="@x.ApplicationId">Delete</a></td>
+            </tr>
+
+           }
     </tbody>
 
 </table>

@@ -15,10 +15,17 @@ namespace MyMovies.Models
         }
 
         public DbSet<ApplicationResponse> Responses { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder nb)
+        public DbSet<Category>Categories { get; set; }
+        
+        //Seed data
+        protected override void OnModelCreating(ModelBuilder mb)
         {
-            nb.Entity<ApplicationResponse>().HasData(
+            mb.Entity<Category>().HasData(
+                new Category { CategoryID = 1, CategoryName = "Action/Adventure" },
+                new Category { CategoryID = 2, CategoryName = "Comedy"}
+            );
+
+            mb.Entity<ApplicationResponse>().HasData(
 
                 new ApplicationResponse
                 {

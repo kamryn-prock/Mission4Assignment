@@ -16,7 +16,7 @@ namespace MyMovies.Models
         [Key]
         [Required]
         public int ApplicationId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter a Title")]
         public string title { get; set; }
         [Required]
         public short year { get; set; }
