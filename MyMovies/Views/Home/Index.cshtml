@@ -2,18 +2,17 @@
     ViewData["Title"] = "The Joel Hilton Film Collection";
 }
 
+<ul class= "bg-dark text-white p-2">
+    <span class="navbar-brand m-lg-2">Movie Database</span>
+    <a asp-controller="Home" asp-action="FillOutForm">Fill Out Form</a>
+    <a asp-controller="Home" asp-action="Podcasts">My Podcasts</a>
+    <a asp-controller="Home" asp-action="List">View List</a>
+</ul>
 <h1>The Joel Hilton Film Collection</h1>
 
 <div>
     <p>So many movies to watch</p>
 </div>
 
-<img src="~/img/Professor Hilton's bro.jpg" height="500"/>
+<img src="~/img/Professor Hilton's bro.jpg" height="500" />
 <br />
-<div>
-    <a asp-controller="Home" asp-action="FillOutForm">Fill Out Form</a>
-    <a asp-controller="Home" asp-action="Podcasts">My Podcasts</a>
-</div>
-<div>
-    <a asp-controller="Home" asp-action="List">View List</a>
-</div>
